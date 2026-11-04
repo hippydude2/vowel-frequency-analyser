@@ -1,0 +1,5 @@
+
+Hello World!
+This is my Lecture 3 GitHub Actions practical.
+I am learning how to use Docker and Python.
+The program will count the frequency of vowels.
