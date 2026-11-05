@@ -30,3 +30,19 @@ jobs:
             -e GITHUB_USER="${{ github.actor }}" \
             -v "${{ github.workspace }}:/workspace" \
             vowel-frequency-analyzer:latest
+
+
+      # Step 4: Commit and push README changes
+      - name: Commit and Push README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Update README with vowel frequency results"
+            git push origin HEAD:main
+          else
+            echo "No changes to commit"
+          fi
